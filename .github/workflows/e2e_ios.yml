@@ -7,7 +7,7 @@ on:
   pull_request:
   push:
     branches:
-      - 'main'
+      - 'test-billing-in-fork'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -16,7 +16,7 @@ concurrency:
 jobs:
   checksecret:
     name: check for oauth client
-    runs-on: macos-14
+    runs-on: macos-14-large
     outputs:
       is_SECRETS_PRESENT_set: ${{ steps.checksecret_job.outputs.is_SECRETS_PRESENT_set }}
     steps:

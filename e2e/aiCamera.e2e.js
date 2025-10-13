@@ -5,6 +5,7 @@ import {
 import { iNatE2eAfterEach, iNatE2eBeforeAll, iNatE2eBeforeEach } from "./helpers";
 import closeOnboarding from "./sharedFlows/closeOnboarding";
 import deleteObservation from "./sharedFlows/deleteObservation";
+import dismissAnnouncements from "./sharedFlows/dismissAnnouncements";
 import signIn from "./sharedFlows/signIn";
 import uploadObservation from "./sharedFlows/uploadObservation";
 
@@ -68,6 +69,7 @@ describe( "AICamera", () => {
         0
       );
       await waitFor( displayTaxonName ).toBeVisible().withTimeout( TIMEOUT );
+      await dismissAnnouncements();
       await displayTaxonName.tap();
 
       // Delete the observation
